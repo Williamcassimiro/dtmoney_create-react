@@ -1,8 +1,7 @@
 import { createGlobalStyle } from 'styled-components'
 
 export const GlobalStyle = createGlobalStyle`
-
-    :root {
+  :root {
         --backgroud: #f0f2f5;
         --red: #E52E4D;
         --green: #33CC95;
@@ -53,7 +52,7 @@ export const GlobalStyle = createGlobalStyle`
     }
     .react-modal-overlay{
 
-        background: rgba(0,0,0,0.5);
+        background: rgba(0,0,0,0.7);
 
         position: fixed;
         top: 0;
@@ -65,15 +64,15 @@ export const GlobalStyle = createGlobalStyle`
         align-items: center;
         justify-content: center;
 
+ 
     }
     .react-modal-content{
 
         width: 100%;
-        max-width: 576%;
-        background: var(----backgroud);
-        padding: 3rem;
+        max-width: 576px;
+        background: var(--backgroud);
+        padding: 9rem;
         position: relative;
-        border-radius: 0.24rem;
+        border-radius: 0.90rem;
     }
-
-`
+` 
