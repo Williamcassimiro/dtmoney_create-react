@@ -2,7 +2,9 @@ import Modal from 'react-modal';
 import incomeImag from '../../assets/income.svg';
 import outcomeImag from '../../assets/outcome.svg';
 import closeImag from '../../assets/close.svg';
-import { Container, TransactionTypeContainer } from '../NewTransactionModal/styles';
+import { Container, TransactionTypeContainer, RadioBox } from '../NewTransactionModal/styles';
+
+import { useState} from 'react'
 
 interface NewTransactionModalProps {
     isOpen: boolean;
@@ -11,6 +13,10 @@ interface NewTransactionModalProps {
 
 
 export function NewTransactionModal({isOpen, OnRequestClose}: NewTransactionModalProps){
+    
+    const [type, setType] = useState('deposit');    
+
+    
 
     return(
         <Modal 
@@ -37,19 +43,31 @@ export function NewTransactionModal({isOpen, OnRequestClose}: NewTransactionModa
                     type="number"
                     placeholder="Valor"
                 />
-
+                
                 <TransactionTypeContainer>
-                    <button type="button">
-                        <img src={outcomeImag} alt="Sainda" />
-                        <span>Sainda</span>
-                    </button>
+                    <RadioBox 
+                    
+                    type ="button"
+                    onClick={() => { setType ('withdraw');}}
+                    isActive = { type === 'withdraw'}
+                    
+                    >
+                        <img src={incomeImag} alt="Entrada" />
+                        <span>Entrada</span>
+                    </RadioBox>
                 </TransactionTypeContainer>
 
                 <TransactionTypeContainer>
-                    <button type="button">
-                        <img src={incomeImag} alt="Entrada" />
-                        <span>Entrada</span>
-                    </button>
+                    <RadioBox 
+                    
+                    type="button"
+                    onClick = { () => { setType ('deposit'); }}
+                    isActive = { type === 'deposit'}
+
+                    >
+                        <img src={outcomeImag} alt="Sainda" />
+                        <span>Sainda</span>
+                    </RadioBox>
                 </TransactionTypeContainer>
 
                 <input
